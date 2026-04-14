@@ -18,14 +18,11 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     const verify = async () => {
       try {
-        const res = await axios.get(
-          "https://versel-backend-78h7z89rh-rachanaashetty133208-uis-projects.vercel.app/api/auth/verify",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`, //  this is for middleware
-            },
+        const res = await axios.get("http://localhost:9000/api/auth/verify", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, //  this is for middleware
           },
-        );
+        });
         if (res.data.success) {
           setUser(res.data.user);
         } else {
