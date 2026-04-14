@@ -28,11 +28,14 @@ const Home = () => {
 
   const fetchNotes = async () => {
     try {
-      const { data } = await axios.get("http://localhost:9000/api/note", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, //  this is for middleware
+      const { data } = await axios.get(
+        "https://versel-backend-78h7z89rh-rachanaashetty133208-uis-projects.vercel.app/api/note",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, //  this is for middleware
+          },
         },
-      });
+      );
       setNotes(data.notes);
     } catch (error) {
       console.log(error);
@@ -52,7 +55,7 @@ const Home = () => {
     try {
       const response = await axios.post(
         // Wrap the request so frontend can read backend errors instead of failing silently
-        "http://localhost:9000/api/note/add",
+        "https://versel-backend-78h7z89rh-rachanaashetty133208-uis-projects.vercel.app/api/note/add",
         {
           title,
           description,
@@ -76,7 +79,7 @@ const Home = () => {
     try {
       const response = await axios.put(
         // Wrap the request so frontend can read backend errors instead of failing silently
-        `http://localhost:9000/api/note/${id}`,
+        `https://versel-backend-78h7z89rh-rachanaashetty133208-uis-projects.vercel.app/api/note/${id}`,
         {
           title,
           description,
@@ -102,7 +105,7 @@ const Home = () => {
     try {
       const response = await axios.delete(
         // Wrap the request so frontend can read backend errors instead of failing silently
-        `http://localhost:9000/api/note/${id}`,
+        `https://versel-backend-78h7z89rh-rachanaashetty133208-uis-projects.vercel.app/api/note/${id}`,
 
         {
           headers: {

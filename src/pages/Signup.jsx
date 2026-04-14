@@ -15,7 +15,7 @@ const Signup = () => {
     try {
       const response = await axios.post(
         // Wrap the request so frontend can read backend errors instead of failing silently
-        "http://localhost:9000/api/auth/register",
+        "https://versel-backend-78h7z89rh-rachanaashetty133208-uis-projects.vercel.app/api/auth/register",
         {
           name,
           email,
